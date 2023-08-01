@@ -1,5 +1,4 @@
 const multer = require("multer");
-const uuid = require("uuid/v1");
 
 const MIME_TYPE_MAP = {
   "audio/wav": "wav",
@@ -15,7 +14,7 @@ const audioUpload = multer({
     },
     filename: (req, file, cb) => {
       const ext = MIME_TYPE_MAP[file.mimetype];
-      cb(null, uuid() + "." + ext);
+      cb(null, audio + "." + ext);
     },
   }),
   fileFilter: (req, file, cb) => {
