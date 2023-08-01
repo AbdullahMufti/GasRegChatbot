@@ -25,6 +25,10 @@ const ChatbotScreen = () => {
   const [questionArray, setQuestionArray] = useState([]);
   const [answerArray, setAnswerArray] = useState([]);
 
+  const responseAudioHandler =async (e) => {
+e.preventDefault();
+  }
+
   const responseHandler = async (e) => {
     e.preventDefault();
     setQuestionArray((prevItems) => [...prevItems, text]);
@@ -57,10 +61,10 @@ const ChatbotScreen = () => {
           {error}
         </Alert>
       </Collapse>
+      <Typography variant="h3" mb={2}>
+        Chat Bot
+      </Typography>
       <form onSubmit={responseHandler}>
-        <Typography variant="h3" mb={2}>
-          Chat Bot
-        </Typography>
         <Stack direction="row" spacing={1}>
           <Box width="93%">
             <TextField
@@ -78,6 +82,11 @@ const ChatbotScreen = () => {
           >
             Ask
           </Button>
+        </Stack>
+      </form>
+      <form onSubmit={responseAudioHandler}>
+        <Stack>
+          <Box width="100%">Audio</Box>
         </Stack>
       </form>
 

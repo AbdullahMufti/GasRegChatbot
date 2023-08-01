@@ -24,6 +24,7 @@ const port = process.env.WEBSITES_PORT || 8080;
 app.use(express.json());
 
 //connect our routes
+
 app.use("/api/openai", require("./routes/openai"));
 app.use(errorHandler);
 
