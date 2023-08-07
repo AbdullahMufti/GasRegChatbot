@@ -54,18 +54,17 @@ export default function Reactreco(props) {
       style={{
         backgroundColor: "white",
         padding: "30px",
-        width: "fit-content",
         borderRadius: "20px",
         border: "green 1px solid",
       }}
     >
       <center>
         <h3>
-          <u>Audio Recorder</u>
+          <u>Audio Query</u>
         </h3>
       </center>
       <center>
-        <div style={{ width: "300px" }}>
+        <div style={{ width: "100%" }}>
           <center style={{ overflow: "hidden" }}>
             {!blobURL && (
               <ReactMic
@@ -83,12 +82,11 @@ export default function Reactreco(props) {
             )}
           </center>
           <div
-            className="RowFlex"
+            className="center"
             style={{
               backgroundColor: "white",
               padding: "15px",
               width: "100%",
-
               minWidth: "300px",
               zIndex: "50",
             }}
