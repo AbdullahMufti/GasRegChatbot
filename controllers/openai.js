@@ -40,6 +40,35 @@ async function GetAnswer(text) {
 
 exports.chatbot = async (req, res) => {
   const { text } = req.body;
+    let refinedAnswerText = "";
+
+    const classify = await GPTClassify(text);
+    if (classify === "1") {
+      const resp = await GetAnswer(text);
+
+      if (
+        resp.text.includes("I don't know") ||
+        resp.text.includes("not mentioned in the context")
+      ) {
+        refinedAnswerText = await GPTResponseDontKnow(
+          `Q:${text}\nAnswer:${resp.text}`
+        );
+      } else {
+        refinedAnswerText = await GPTResponse(`Q:${text}\nAnswer:${resp.text}`);
+      }
+
+      return res.status(200).json({
+        question: text,
+        reply: refinedAnswerText,
+      });
+    }
+    if (classify === "0") {
+      const resp = await GPTGreet(`${text}`);
+      return res.status(200).json({
+        question: text,
+        reply: resp,
+      });
+    }
 };
 
 exports.audiochat = async (req, res) => {
