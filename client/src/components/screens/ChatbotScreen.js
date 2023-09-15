@@ -102,7 +102,7 @@ const ChatbotScreen = () => {
         Chat Bot
       </Typography>
       <div style={{ margin: "20px auto" }}>
-        {!AudioQ ? (
+{/*        {!AudioQ ? (
           <Button
             style={{ width: "100%" }}
             variant="contained"
@@ -112,7 +112,8 @@ const ChatbotScreen = () => {
             Audio Question
           </Button>
         ) : (
-          <Button
+
+  <Button
             style={{ width: "100%" }}
             variant="contained"
             color="success"
@@ -120,7 +121,7 @@ const ChatbotScreen = () => {
           >
             Text Question
           </Button>
-        )}
+        )}*/}
       </div>
       {!AudioQ ? (
         <form onSubmit={responseHandler}>
