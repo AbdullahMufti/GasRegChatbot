@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
-import Reactreco from "../Reactreco";
+// import Reactreco from "../Reactreco";
 import "./bubble.css";
 import LoadingSpinner from "../loadingspinner";
 const ChatbotScreen = () => {
